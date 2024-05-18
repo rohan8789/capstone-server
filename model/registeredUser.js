@@ -13,8 +13,10 @@ const registeredUserSchema = new Schema({
   aadhar: { type: String, required: true },
   training: {type: String, required: true},
   uid: { type: mongoose.Types.ObjectId, required: true, ref: "User" },
+  status:{type:String, required:true},
 });
 
-registeredUserSchema.plugin(uniqueValidator);
+
+// registeredUserSchema.plugin(uniqueValidator);
 
 module.exports = mongoose.model("Reguser", registeredUserSchema);

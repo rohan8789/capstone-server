@@ -67,13 +67,12 @@ const registerSignedUser = async (req, res, next) => {
     return res.json({ message: "can not register data without user input" });
   }
   console.log("Hellobaby")
-  // console.log(req.body);
-  const { name, email, fname, mname, phno, address, training, uid } = req.body;
+  console.log(req.body);
+  const { name, email, fname, mname, phno, address, training, uid, status } = req.body;
   // console.log(req.file.path);
 
   const createdform = new Reguser({
-    name, email, fname, mname, phno, address, training, uid, aadhar: req.file.path,
-    
+    name, email, fname, mname, phno, address, training, uid, aadhar: req.file.path,status
   });
 
   let user;
@@ -101,8 +100,8 @@ const registerSignedUser = async (req, res, next) => {
         .status(400)
         .json({ message: "Creating a place in failed in try-catch..." });
     }
-    console.log(user);//prints whole document.
-    console.log(createdform);
+    // console.log(user);//prints whole document.
+    // console.log(createdform);
       res.status(201).json({ message: "Training registration request sent..." });
 };
 

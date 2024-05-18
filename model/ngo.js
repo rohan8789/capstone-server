@@ -12,6 +12,7 @@ const ngoSchema = new Schema({
   address: { type: String, required: true },
   ngoObj: { type: String, required: true },
   uid: { type: mongoose.Types.ObjectId, required: true, ref: "User" },
+  status:{type:String, required: true}
 });
 
 ngoSchema.plugin(uniqueValidator);

@@ -71,8 +71,9 @@ const getNGOFormDetails = async (req, res) =>{
 
 
 const registerNGO = async (req, res, next) => {
-  const { name, regno, dob, regAuth, phno, address, ngoObj, uid } = req.body;
-  // console.log(req.body)
+  const { name, regno, dob, regAuth, phno, address, ngoObj, uid, status } = req.body;
+  console.log("babe")
+  console.log(req.body)
   let checkRegistered;
   try {
     checkRegistered = await Ngo.findOne({ regno: regno });
@@ -88,7 +89,8 @@ const registerNGO = async (req, res, next) => {
     phno,
     address,
     ngoObj,
-    uid
+    uid,
+    status
   });
   
   let user;
@@ -117,7 +119,7 @@ const registerNGO = async (req, res, next) => {
       .status(400)
       .json({ message: "NGO Registration failed..." });
   }
-  console.log(user); //prints whole document.
+  // console.log(user); //prints whole document.
 //   console.log(createdform);
   res.status(201).json({ ngoform: createdform, message:"NGO registration request sent..." });
 };

@@ -7,7 +7,7 @@ const adminSchema = new Schema({
   name: { type: String, required: true },
   aadhar: { type: String, required: true, unique: true },
   password: { type: String, required: true, minlength: 6 },
-//   ridArr: [{ type: mongoose.Types.ObjectId, required: true, ref: "Reguser" }],
+  //   ridArr: [{ type: mongoose.Types.ObjectId, required: true, ref: "Reguser" }],
 });
 
 adminSchema.plugin(uniqueValidator);
