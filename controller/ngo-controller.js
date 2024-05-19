@@ -5,7 +5,18 @@ const User = require("../model/user");
 const Ngo = require("../model/ngo");
 
 
-
+const getNGOlist = async (req, res) =>{
+  let ngo_details;
+  try {
+    ngo_details = await Ngo.find({});
+  } catch (error) {
+    console.log(error);
+    return res.status(404).json({ message: "could not find place by provided user id" });
+  }
+  console.log("ngo_details");
+  console.log(ngo_details);
+  return res.status(201).json({details:ngo_details.map((e)=>e.toObject({getters:true}))})
+}
 
 
 
@@ -124,4 +135,4 @@ const registerNGO = async (req, res, next) => {
   res.status(201).json({ ngoform: createdform, message:"NGO registration request sent..." });
 };
 
-module.exports = { registerNGO, getRegisteredNGObyUserId, getNGOFormDetails };
+module.exports = { registerNGO, getRegisteredNGObyUserId, getNGOFormDetails, getNGOlist };
