@@ -17,7 +17,6 @@ const deleteRegForm = async(req, res) =>{
       console.log(error);
       return res.status(500).json({ message: "Something went wrong while deleting plsce" });
     }
-    console.log("HELLLLOOOOO babyyyy");
     console.log(reg_details);
     if (!reg_details) {
       return res.status(400).json({ message: "Could not find NGO to reject by this id" });
@@ -71,7 +70,6 @@ const deleteNGO = async (req, res) =>{
         .status(500)
         .json({ message: "Something went wrong while deleting plsce" });
     }
-    console.log("HELLLLOOOOO babyyyy")
     console.log(ngo_details)
     if(!ngo_details){
          return res.status(400).json({ message: "Could not find NGO to reject by this id" });
@@ -146,7 +144,6 @@ const getRegisteredSignedUser = async (req, res, next) =>{
         console.log(err);
       return res.status(500).json({ message: "can not find user..." });
     }
-    console.log('fcuk offfff')
     console.log(regArr)
     if(!regArr){
       return res.status(500).json({ message: "can not find user..." });
@@ -182,7 +179,7 @@ const registerAdmin = async (req, res) => {
         return res.status(500).json({ message: "password encryption failed" });
     }
     const createdAdmin = new Admin({
-        name, //as good as name: name
+        name, 
         aadhar,
         password: hashedPassword,
     });
@@ -226,7 +223,6 @@ const loginAdmin = async (req, res, next) => {
     if (!existingAdmin) {
         return res.status(403).json({ message: "User does not exist in our database" });
     }
-    console.log("Hello Baby");
     // console.log(existingAdmin);
     let isValidPassword = false;
     try {
