@@ -32,7 +32,7 @@ const registerUser = async (req, res) => {
     return res.status(500).json({ message: "password encryption failed" });
   }
   const createdUser = new User({
-    name, //as good as name: name
+    name, 
     email,
     phno,
     dob, 
@@ -55,7 +55,6 @@ const registerUser = async (req, res) => {
           { expiresIn: "1h" }
         );
     } catch (err) {
-        // console.log(err);
         return res
         .status(500)
         .json({
