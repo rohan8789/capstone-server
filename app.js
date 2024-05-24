@@ -11,11 +11,11 @@ const ngoRouter = require('./routes/ngo-router');
 const app = express();
 
 
+app.use(express.json());
+app.use(cors());
 
 app.use("/uploads/images", express.static(path.join("uploads", "images")));
 
-app.use(express.json());
-app.use(cors());
 
 app.use("/api/users", userRouter);
 app.use("/api/regusers", reguserRouter);
