@@ -66,8 +66,7 @@ const registerSignedUser = async (req, res, next) => {
   if (!error.isEmpty()) {
     return res.json({ message: "can not register data without user input" });
   }
-  console.log("Hellobaby")
-  console.log(req.body);
+
   const { name, email, fname, mname, phno, address, training, uid, status } = req.body;
   // console.log(req.file.path);
 
